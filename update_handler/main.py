@@ -1,9 +1,7 @@
 from flask import Flask, request
 import telebot
 import os
-import json
-from requests import post
-TOKEN = '834381692:AAGtVWx0RatEgM9GOio-N-fPBc4DqIZBHaM'
+TOKEN = 'Your token'
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 
@@ -14,7 +12,7 @@ def getMessage():
 
 @bot.message_handler(commands=['start'])
 def start(message):
-	bot.send_message(message.chat.id, 'Hello2, ' + message.from_user.first_name)
+	bot.send_message(message.chat.id, 'Hello, ' + message.from_user.first_name)
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
